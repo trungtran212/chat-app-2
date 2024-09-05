@@ -46,6 +46,8 @@ void handleClient(int clientSock) {
             // clients.erase(remove(clients.begin(), clients.end(), clientSock), clients.end());
             break;
         }
+        cout << "Tin nhắn từ client" << clientSock << ": " << buffer << endl;
+        send(clientSock, buffer, bytesRead, 0);
         string message = string(buffer);
         broadcastMessage(message, clientSock);
     }
